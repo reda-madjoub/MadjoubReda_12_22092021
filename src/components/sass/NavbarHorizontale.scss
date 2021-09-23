@@ -1,0 +1,27 @@
+
+.navbarTop {
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-color: #020203;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    height: 91px;
+    img {
+        width: fit-content;
+        padding: 10px 0 0 10px;
+        z-index: 2;
+    }
+    ul {
+        width: 80%;
+        list-style: none;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    ul li {
+        color: #FFF;
+        font-size: 24px;
+        font-family: "Roboto";
+    }
+}

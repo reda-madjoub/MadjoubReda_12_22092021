@@ -1,0 +1,32 @@
+.navbarLeft {
+    //display: none;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-color: #020203;
+    position: fixed;
+    width: 117px;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 54px;
+        height: 54px;
+        margin-bottom: 26px;
+    }
+    p {
+        color: #FFF;
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        position: absolute;
+        bottom: 100px;
+        font-size: 12px;
+        width: 135px;
+        height: auto;
+    }
+
+}
