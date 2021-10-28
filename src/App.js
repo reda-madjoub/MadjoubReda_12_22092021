@@ -1,15 +1,21 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.scss'
-import NavbarHorizontale from './components/js/NavbarHorizontale'
-import NavbarVerticale from './components/js/NavbarVerticale'
+import Main from './components/js/Main'
+import NotFound from './components/js/NotFound'
 
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-        <NavbarVerticale />
-        <NavbarHorizontale />
+    <Switch>
+      <Route path="/:id" component={Main} />
+      <Route component={NotFound}/>
+    </Switch>
     </div>
+    </BrowserRouter>
+
   )
 }
 

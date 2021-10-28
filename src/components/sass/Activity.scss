@@ -1,0 +1,22 @@
+.recharts-responsive-container {
+    // width: 100%;
+    // background-color: #FBFBFB;
+    // background-color: #FB1;
+    box-shadow: 0px 2px 4px 0px #00000005;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.recharts-wrapper {
+    // height: 200px !important;
+}
+.recharts-surface {
+    height: 100% !important;
+    width: 100% !important;
+}

@@ -1,0 +1,27 @@
+.average-sessions {
+    position: relative;
+}
+.lineChart-container {
+    background-color: red;
+}
+
+.custom-tooltip {
+    background-color: white;
+    padding: 1.5rem 1rem;
+    color: black;
+    list-style: 24px;
+    font-weight: 500;
+}
+h3 {
+    padding: 2rem;
+    position: absolute;
+    height: 48px;
+    left: 0%;
+    right: 0.68%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    // line-height: 24px;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
