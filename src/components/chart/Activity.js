@@ -59,65 +59,105 @@ export default class Activity extends Component {
 
   render() {
     return (
-      <BarChart width={730} height={250} data={data}>
-  <CartesianGrid strokeDasharray="3 3" />
-  <XAxis dataKey="name" />
-  <YAxis />
-  <Tooltip />
-  <Legend />
-  <Bar dataKey="pv" fill="#8884d8" />
-  <Bar dataKey="uv" fill="#82ca9d" />
-</BarChart>
-      // <ResponsiveContainer 
-      //   width="100%"
-      //   height="100%" 
-      //   aspect={3}>
-      //   <BarChart
-      //     legendType="circle"
-      //     data={data}
-      //     barGap={8}
-      //   >
-      //     <CartesianGrid 
-      //     vertical={false}
-      //     strokeDasharray="3 3" />
-      //     <Legend 
-      //       verticalAlign="top" 
-      //       align="right"
-      //       margin={{bottom:100}}
-      //       iconType="circle"
-      //       height={40}
+//       <BarChart width={730} height={250} data={data}>
+//   <CartesianGrid strokeDasharray="3 3" />
+//   <XAxis dataKey="name" />
+//   <YAxis />
+//   <Tooltip />
+//   <Legend />
+//   <Bar dataKey="pv" fill="#8884d8" />
+//   <Bar dataKey="uv" fill="#82ca9d" />
+// </BarChart>
+<div className="activity-chart-container">
+<div className="header-barChart">
+<h3>Activité quotidienne</h3>
+<div className="legend">
+  <div id="poids">
+    <span className="point"></span>
+    <h4>Poids (kg)</h4>
+  </div>
+  <div id="calories">
+    <span className="point"></span>
+    <h4>Calories brûlées (kCal)</h4>
+  </div>
+</div>
+</div>
+      <ResponsiveContainer 
+        width="100%"
+        // height="100%" 
+        // aspect={2.5}
+        >
+        <BarChart
+        className="barChart"
+        margin={{
+          top: 20, right: 0, bottom: 30, left: 0,
+        }}
+          legendType="circle"
+          data={data}
+          barGap={8}
+        >
+          <CartesianGrid
+          vertical={false}
+          strokeDasharray="3 3" />
+          {/* <Legend 
+            className="legend-Activity"
+            verticalAlign="top" 
+            align="right"
+            width="10px"
+            iconType="circle"
+
+            // height={20}
             
-      //       />
-      //     <YAxis 
-      //       dataKey="Kcal" 
-      //       orientation="right" 
-      //       axisLine={false}
-      //       tick={{ fontSize: 14, fill: '#74798c', strokeWidth: 6}}
-      //       tickLine={false}
-      //       dx={20}
-      //       />
-      //     <XAxis 
-      //       dy={20}
-      //       dataKey="kg" 
-      //       tick={{ fontSize: 14, fill: '#74798c'}}
-      //       tickLine={false}
-      //     />
-      //     <Tooltip 
-      //       cursor={{fill: "#C4C4C4", opacity:"0.5"}}
-      //     />
-      //     <Bar 
-      //       dataKey="Kcal" 
-      //       fill="#282D30" 
-      //       radius={[10, 10, 0, 0]} 
-      //       barSize={7}
-      //       />
-      //     <Bar 
-      //       dataKey="kg" 
-      //       fill="#E60000" 
-      //       radius={[10, 10, 0, 0]}
-      //       barSize={7} />
-      //   </BarChart>
-      // </ResponsiveContainer>
+             */}
+             {/* /> */}
+          <YAxis 
+            dataKey="Kcal" 
+            orientation="right" 
+            axisLine={false}
+            tick={{ fontSize: 18, fill: '#74798c', strokeWidth: 6}}
+            tickLine={false}
+            dx={20}
+            />
+          <XAxis 
+            dy={20}
+            dataKey="kg" 
+            tick={{ fontSize: 18, fill: '#74798c'}}
+            tickLine={false}
+          />
+          <Tooltip 
+            cursor={{fill: "#C4C4C4", opacity:"0.5"}}
+            content={<CustomTooltip />}
+          />
+          <Bar 
+            dataKey="Kcal" 
+            fill="#282D30" 
+            radius={[10, 10, 0, 0]} 
+            barSize={9}
+            />
+          <Bar 
+            dataKey="kg" 
+            fill="#E60000" 
+            radius={[10, 10, 0, 0]}
+            barSize={9} 
+            
+          />
+        </BarChart>
+      </ResponsiveContainer>
+</div>
     )
   }
 }
+
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload) {
+    return (
+      <div className="custom-tooltip-activity">
+        <p className="label">{`${payload[1].value} kg`}</p>
+        <p className="label">{`${payload[0].value} Kcal`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
