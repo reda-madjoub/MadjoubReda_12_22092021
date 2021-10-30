@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../sass/Score.scss'
 
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 
 
 
@@ -15,11 +15,12 @@ class Score extends Component {
     render () {
         return (
            <>
-           <PieChart width={250} height={250} >
+           <PieChart width={250} height={250} className="pieChart" >
             <Pie
+              className="pie"
                 data={pieData}
                 cx={"50%"}
-                cy={"50%"}
+                cy={"60%"}
                 fill="#8884d8"
                 paddingAngle={5}
                 dataKey="value"
@@ -29,17 +30,22 @@ class Score extends Component {
                 endAngle={460}
             >
               <Cell
+              className="cell"
                 fill={"#ff0101"}
                 cornerRadius="50%"
               />
               <Cell
+              className="cell"
                 fill={"transparent"}
                 cornerRadius="50%"
+                margin={{
+                  top: 0
+                }}
               />
             </Pie>
 
           </PieChart>
-            <div>
+            <div className="text-PieChart">
                 <h3>Score</h3>
                 <div id="score">
                 <div id="box-content">
