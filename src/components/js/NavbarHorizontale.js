@@ -8,16 +8,16 @@ export default function NavbarHorizontale() {
         <div className="navbarTop">
             <img src={logo} alt="logo icon" />
             <ul>
-            <NavLink to='/'>
+            <NavLink to='/12'>
                 <li>Accueil</li>
             </NavLink>
-            <NavLink to='/'>
+            <NavLink to='/12'>
                 <li>Profil</li>
             </NavLink>
-            <NavLink to='/'>
+            <NavLink to='/12'>
                 <li>Réglage</li>
             </NavLink>
-            <NavLink to='/'>
+            <NavLink to='/12'>
                 <li>Communauté</li>
             </NavLink>
             </ul>

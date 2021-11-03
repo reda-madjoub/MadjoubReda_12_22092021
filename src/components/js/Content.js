@@ -10,39 +10,47 @@ export default class Content extends Component {
     constructor() {
         super()
         this.state = {
-            infos: '',
+            
+            userInfos: {},
+            userActivity: {},
+            userAverageSessions: {},
+            userPerformance: {},
             isLoaded: false,
-            id: window.location.pathname.split("/").pop()
+
+            // id: window.location.pathname.split("/").pop()
+            // id: this.props.id
         }
     }
     async componentDidMount() {
-        // console.log(this.state.id);
-        const userInfosData = await apiCall(`http://localhost:3000/user/${this.state.id}`)
-        const activityData = await apiCall(`http://localhost:3000/user/${this.state.id}/activity`)
-        const averageSessionsData = await apiCall(`http://localhost:3000/user/${this.state.id}/average-sessions`)
-        const performanceData = await apiCall(`http://localhost:3000/user/${this.state.id}/performance`)
+        // console.log(this.props.id);
+        const userInfosData = await apiCall(`http://localhost:3000/user/${this.props.id}`)
+        const activityData = await apiCall(`http://localhost:3000/user/${this.props.id}/activity`)
+        const averageSessionsData = await apiCall(`http://localhost:3000/user/${this.props.id}/average-sessions`)
+        const performanceData = await apiCall(`http://localhost:3000/user/${this.props.id}/performance`)
         this.setState({
-            infos : userInfosData,
+            userInfos : userInfosData,
+            userActivity : activityData,
+            userAverageSessions : averageSessionsData,
+            userPerformance : performanceData,
             isLoaded: true,
         })
     }
 
     render () {
-        const {infos, isLoaded} = this.state
-        // console.log(infos)
-        return (
-            isLoaded ?(
-                <>
+        
+        // console.log(this.props.id);
+        const {userInfos, userActivity, userPerformance, userAverageSessions, isLoaded} = this.state
+        return (isLoaded ?
+                (
                     <Container 
-                        userInfos={infos}
-
+                        userInfos={userInfos}
+                        userActivity={userActivity}
+                        userAverageSessions={userAverageSessions}
+                        userPerformance={userPerformance}
                     />
-                    {/* <Header name={name}/>
-                    <Activity/> */}
-                </>
-                )
+                ) 
                 : 
-                <Loading />        
+            <Loading /> 
         )
     }
 }

@@ -7,6 +7,7 @@ const apiCall = async (fetchedData) => {
     const getRequest = await fetch(fetchedData)
     const jsonResponse = await getRequest.json()
     const URL = fetchedData.split("/").pop()
+    // console.log(this.match.params);
     // const id = 18
     // console.log(URL);
     switch (URL) {
@@ -19,12 +20,12 @@ const apiCall = async (fetchedData) => {
             )
         case "activity":
             return new Activity(
-                jsonResponse.data.id,
-                jsonResponse.data.session
+                jsonResponse.data.userId,
+                jsonResponse.data.sessions
             )
         case "average-sessions":
             return new AverageSession(
-                jsonResponse.data.id,
+                jsonResponse.data.userId,
                 jsonResponse.data.sessions
             )
         case "performance":
