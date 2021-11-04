@@ -9,28 +9,31 @@ import Header from './Header'
 
 class Container extends Component {
     render () {
-        console.log(this.props)
-        const {userInfos} = this.props
-        console.log(userInfos.KeyData.firstName);
+        console.log(this.props.userInfos)
+        const { userInfos,
+                userActivity,
+                userPerformance, 
+                userAverageSessions
+            } = this.props
         return (
             <main className="parent">
                 <section className="user-infos">
-                    <UserInfos infos={userInfos}/>
+                    <UserInfos infos={userInfos.userInfos}/>
                 </section>
                 <section className="activity">
-                    <Activity/>
+                    <Activity activity={userActivity}/>
                 </section>
                 <section className="head"> 
                     <Header name={userInfos.KeyData.firstName}/>
                 </section>
                 <section className="average-sessions">
-                    <AverageSessions/>
+                    <AverageSessions averageSessions={userAverageSessions}/>
                 </section>
                 <section className="performance">
-                    <Performance/> 
+                    <Performance performance={userPerformance}/> 
                 </section>
                 <section className="score">
-                    <Score/>
+                    <Score todayScore={userInfos?.todayScore} score={userInfos?.score} />
                 </section>
             </main>
         )

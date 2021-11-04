@@ -5,9 +5,7 @@ import NavbarVerticale from './NavbarVerticale'
 
 class Main extends Component {
     render () {
-        // console.log(this.props.match.params.id);
         const {id} = this.props.match.params
-
         return (
             <>
                 <NavbarVerticale />

@@ -5,14 +5,21 @@ import { PieChart, Pie, Cell } from 'recharts';
 
 
 
-const pieData = [
-    { value: 0.12 },
-    { value: 1-0.12 },
-  ]
 
-
-class Score extends Component {
+  
+  class Score extends Component {
     render () {
+      const {score, todayScore} = this.props
+      let finalScore;
+      if(score) finalScore = score
+      else finalScore = todayScore
+      const pieData = [
+        { value:  finalScore},
+        { value: 1-finalScore },
+      ]
+    
+      console.log(score)
+      console.log(todayScore)
         return (
            <>
            <PieChart width={250} height={250} className="pieChart" >
@@ -49,7 +56,7 @@ class Score extends Component {
                 <h3>Score</h3>
                 <div id="score">
                 <div id="box-content">
-                    <p><span id="percentage">12%</span><br /> de votre objectif</p>
+                    <p><span id="percentage">{finalScore*100}%</span><br /> de votre objectif</p>
                 </div>
                 </div>
             </div>

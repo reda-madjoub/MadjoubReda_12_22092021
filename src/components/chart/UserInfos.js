@@ -8,6 +8,8 @@ import  apple  from '../../img/apple.svg'
 class UserInfos extends Component {
 
     render () {
+        const {infos} = this.props
+        console.log(infos);
         return (
             <div className="container-userInfos">
                 <div className="keydata">
@@ -15,7 +17,7 @@ class UserInfos extends Component {
                         <img src={energy} alt="fire represent energy"/>
                     </div>
                     <div className="content">
-                        <p><strong>1,930kCal</strong></p>
+                        <p><strong>{infos.calorieCount}kCal</strong></p>
                         <p><em>Calories</em></p>
                     </div>
                 </div>
@@ -24,8 +26,8 @@ class UserInfos extends Component {
                         <img src={chicken} alt="fire represent energy"/>
                     </div>
                     <div className="content">
-                        <p><strong>1,930kCal</strong></p>
-                        <p><em>Calories</em></p>
+                        <p><strong>{infos.proteinCount}g</strong></p>
+                        <p><em>Proteines</em></p>
                     </div>
                 </div>
                 <div className="keydata">
@@ -33,8 +35,8 @@ class UserInfos extends Component {
                         <img src={apple} alt="fire represent energy"/>
                     </div>
                     <div className="content">
-                        <p><strong>1,930kCal</strong></p>
-                        <p><em>Calories</em></p>
+                        <p><strong>{infos.carbohydrateCount}g</strong></p>
+                        <p><em>Glucides</em></p>
                     </div>
                 </div>
                 <div className="keydata">
@@ -42,8 +44,8 @@ class UserInfos extends Component {
                         <img src={cheeseburger} alt="fire represent energy"/>
                     </div>
                     <div className="content">
-                        <p><strong>1,930kCal</strong></p>
-                        <p><em>Calories</em></p>
+                        <p><strong>{infos.lipidCount}g</strong></p>
+                        <p><em>Lipides</em></p>
                     </div>
                 </div>
             </div>
