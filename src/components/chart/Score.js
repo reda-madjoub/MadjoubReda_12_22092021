@@ -18,8 +18,8 @@ import { PieChart, Pie, Cell } from 'recharts';
         { value: 1-finalScore },
       ]
     
-      console.log(score)
-      console.log(todayScore)
+      // console.log(score)
+      // console.log(todayScore)
         return (
            <>
            <PieChart width={250} height={250} className="pieChart" >

@@ -4,39 +4,12 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 
 
 
-const data = [
-  {
-    day: 'L',
-    sessionLength: 100,
-  },
-  {
-    day: 'M',
-    sessionLength: 200,
-  },
-  {
-    day: 'M',
-    sessionLength: 200,
-  },
-  {
-    day: 'J',
-    sessionLength: 280,
-  },
-  {
-    day: 'V',
-    sessionLength: 390,
-  },
-  {
-    day: 'S',
-    sessionLength: 390,
-  },
-  {
-    day: 'D',
-    sessionLength: 490,
-  },
-];
+
 
 class AverageSessions extends Component {
     render () {
+      const {averageSessions} = this.props
+      const data = averageSessions
         return (
           <>
           <h3>Durée moyenne des sessions</h3>

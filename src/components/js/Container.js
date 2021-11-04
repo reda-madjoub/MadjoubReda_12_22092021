@@ -27,7 +27,7 @@ class Container extends Component {
                     <Header name={userInfos.KeyData.firstName}/>
                 </section>
                 <section className="average-sessions">
-                    <AverageSessions averageSessions={userAverageSessions}/>
+                    <AverageSessions averageSessions={userAverageSessions.sessions}/>
                 </section>
                 <section className="performance">
                     <Performance performance={userPerformance}/> 

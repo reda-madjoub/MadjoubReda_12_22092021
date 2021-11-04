@@ -9,7 +9,7 @@ class UserInfos extends Component {
 
     render () {
         const {infos} = this.props
-        console.log(infos);
+        // console.log(infos);
         return (
             <div className="container-userInfos">
                 <div className="keydata">
