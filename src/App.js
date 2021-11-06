@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
     <div className="App">
     <Switch>
-      <Route path="/:id" component={Main} />
+      <Route exact path="/:id" component={Main} />
       <Route component={NotFound}/>
     </Switch>
     </div>

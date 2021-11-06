@@ -8,6 +8,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 
 class AverageSessions extends Component {
     render () {
+      // console.log(this.props);
       const {averageSessions} = this.props
       const data = averageSessions
         return (

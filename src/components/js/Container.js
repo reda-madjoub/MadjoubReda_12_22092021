@@ -9,7 +9,7 @@ import Header from './Header'
 
 class Container extends Component {
     render () {
-        console.log(this.props.userInfos)
+        // console.log(this.props.userInfos)
         const { userInfos,
                 userActivity,
                 userPerformance, 

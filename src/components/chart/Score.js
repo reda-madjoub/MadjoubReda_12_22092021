@@ -24,6 +24,7 @@ import { PieChart, Pie, Cell } from 'recharts';
            <>
            <PieChart width={250} height={250} className="pieChart" >
             <Pie
+            
               className="pie"
                 data={pieData}
                 cx={"50%"}

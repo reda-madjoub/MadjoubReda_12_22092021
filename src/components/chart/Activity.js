@@ -10,78 +10,39 @@ import {  BarChart,
           Legend, 
           ResponsiveContainer } from 'recharts';
 
-const data = [
-  {
-    name: 'Page A',
-    kg: 4000,
-    Kcal: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    kg: 3000,
-    Kcal: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    kg: 2000,
-    Kcal: 2800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    kg: 2780,
-    Kcal: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    kg: 1890,
-    Kcal: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    kg: 2390,
-    Kcal: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    kg: 3490,
-    Kcal: 4300,
-    amt: 2100,
-  },
-];
+
 
 export default class Activity extends Component {
 
   render() {
+    const {sessions} = this.props.activity
+    const data = []
+
+    for (const item of sessions) {
+      const [yyyy,mm,dd] = item.day.split("-")
+      data.push({
+        calories: item.calories,
+        day: `${dd}/${mm}`,
+        kilogram: item.kilogram
+      })
+    }
+    // console.log(data);
+
     return (
-//       <BarChart width={730} height={250} data={data}>
-//   <CartesianGrid strokeDasharray="3 3" />
-//   <XAxis dataKey="name" />
-//   <YAxis />
-//   <Tooltip />
-//   <Legend />
-//   <Bar dataKey="pv" fill="#8884d8" />
-//   <Bar dataKey="uv" fill="#82ca9d" />
-// </BarChart>
-<div className="activity-chart-container">
-<div className="header-barChart">
-<h3>Activité quotidienne</h3>
-<div className="legend">
-  <div id="poids">
-    <span className="point"></span>
-    <h4>Poids (kg)</h4>
-  </div>
-  <div id="calories">
-    <span className="point"></span>
-    <h4>Calories brûlées (kCal)</h4>
-  </div>
-</div>
-</div>
+      <div className="activity-chart-container">
+        <div className="header-barChart">
+        <h3>Activité quotidienne</h3>
+        <div className="legend">
+          <div id="poids">
+            <span className="point"></span>
+            <h4>Poids (kg)</h4>
+          </div>
+          <div id="calories">
+            <span className="point"></span>
+            <h4>Calories brûlées (kCal)</h4>
+          </div>
+        </div>
+        </div>
       <ResponsiveContainer 
         width="100%"
         // height="100%" 
@@ -99,43 +60,48 @@ export default class Activity extends Component {
           <CartesianGrid
           vertical={false}
           strokeDasharray="3 3" />
-          {/* <Legend 
-            className="legend-Activity"
-            verticalAlign="top" 
-            align="right"
-            width="10px"
-            iconType="circle"
-
-            // height={20}
-            
-             */}
-             {/* /> */}
-          <YAxis 
-            dataKey="Kcal" 
+          <XAxis 
+            dy={20}
+            dataKey="day" 
+            tick={{ fontSize: 18, fill: '#74798c'}}
+            tickLine={false}
+          />
+          <YAxis
             orientation="right" 
             axisLine={false}
             tick={{ fontSize: 18, fill: '#74798c', strokeWidth: 6}}
             tickLine={false}
             dx={20}
+            interval="number"
+              allowDecimals={false}
+            dataKey="kilogram"
+            domain={[0, "auto"]}
+            yAxisId="kg"
             />
-          <XAxis 
-            dy={20}
-            dataKey="kg" 
-            tick={{ fontSize: 18, fill: '#74798c'}}
+          <YAxis
+           orientation="right"
+            tick={{ fontSize: 18, fill: '#74798c', strokeWidth: 6}}
             tickLine={false}
-          />
+            dataKey="calories"
+            domain={[0, "auto"]}
+            yAxisId="kCal"
+            hide={true}
+            />
+          
           <Tooltip 
             cursor={{fill: "#C4C4C4", opacity:"0.5"}}
             content={<CustomTooltip />}
           />
           <Bar 
-            dataKey="Kcal" 
+            dataKey="calories" 
             fill="#282D30" 
             radius={[10, 10, 0, 0]} 
             barSize={9}
+            yAxisId="kCal"
             />
           <Bar 
-            dataKey="kg" 
+            yAxisId="kg"
+            dataKey="kilogram" 
             fill="#E60000" 
             radius={[10, 10, 0, 0]}
             barSize={9} 
@@ -143,7 +109,7 @@ export default class Activity extends Component {
           />
         </BarChart>
       </ResponsiveContainer>
-</div>
+      </div>
     )
   }
 }
