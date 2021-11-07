@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../sass/AverageSessions.scss'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 
@@ -36,6 +36,7 @@ class AverageSessions extends Component {
               axisLine={false}
             />
             <YAxis 
+          domain={[0, "dataMax + 20"]}
               hide={true}
             />
             <Tooltip 

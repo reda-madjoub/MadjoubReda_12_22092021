@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+// import PropTypes from 'prop-types';
 import Content from './Content'
 import NavbarHorizontale from './NavbarHorizontale'
 import NavbarVerticale from './NavbarVerticale'
+
 
 class Main extends Component {
     render () {
@@ -15,5 +17,8 @@ class Main extends Component {
         )
     }
 }
+// Main.propTypes = {
+//     id: PropTypes.number.isRequired
+// }
 
 export default Main

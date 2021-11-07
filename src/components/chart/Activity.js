@@ -2,12 +2,10 @@ import '../sass/Activity.scss'
 import React, { Component } from 'react';
 import {  BarChart, 
           Bar, 
-          Cell, 
           XAxis, 
           YAxis, 
           CartesianGrid, 
-          Tooltip, 
-          Legend, 
+          Tooltip,
           ResponsiveContainer } from 'recharts';
 
 

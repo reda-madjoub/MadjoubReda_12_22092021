@@ -23,10 +23,10 @@ export default class Content extends Component {
     }
     async componentDidMount() {
         // console.log(this.props.id);
-        const userInfosData = await apiCall(`http://localhost:3000/user/${this.props.id}`)
-        const activityData = await apiCall(`http://localhost:3000/user/${this.props.id}/activity`)
-        const averageSessionsData = await apiCall(`http://localhost:3000/user/${this.props.id}/average-sessions`)
-        const performanceData = await apiCall(`http://localhost:3000/user/${this.props.id}/performance`)
+        const userInfosData = await apiCall(`http://localhost:3000/user/${this.props.id}`,this.props.id)
+        const activityData = await apiCall(`http://localhost:3000/user/${this.props.id}/activity`,this.props.id)
+        const averageSessionsData = await apiCall(`http://localhost:3000/user/${this.props.id}/average-sessions`,this.props.id)
+        const performanceData = await apiCall(`http://localhost:3000/user/${this.props.id}/performance`,this.props.id)
         this.setState({
             userInfos : userInfosData,
             userActivity : activityData,

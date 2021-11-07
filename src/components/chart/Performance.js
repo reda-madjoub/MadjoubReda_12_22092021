@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../sass/Performance.scss'
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
 class Performance extends Component {
     render () {

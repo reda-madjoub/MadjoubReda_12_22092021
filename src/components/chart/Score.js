@@ -3,19 +3,12 @@ import '../sass/Score.scss'
 
 import { PieChart, Pie, Cell } from 'recharts';
 
-
-
-
-  
   class Score extends Component {
     render () {
-      const {score, todayScore} = this.props
-      let finalScore;
-      if(score) finalScore = score
-      else finalScore = todayScore
+      const {todayScore} = this.props
       const pieData = [
-        { value:  finalScore},
-        { value: 1-finalScore },
+        { value:  todayScore},
+        { value: 1 - todayScore },
       ]
     
       // console.log(score)
@@ -29,7 +22,7 @@ import { PieChart, Pie, Cell } from 'recharts';
                 data={pieData}
                 cx={"50%"}
                 cy={"60%"}
-                fill="#8884d8"
+                fill="red !important"
                 paddingAngle={5}
                 dataKey="value"
                 innerRadius={70}
@@ -57,7 +50,7 @@ import { PieChart, Pie, Cell } from 'recharts';
                 <h3>Score</h3>
                 <div id="score">
                 <div id="box-content">
-                    <p><span id="percentage">{finalScore*100}%</span><br /> de votre objectif</p>
+                    <p><span id="percentage">{todayScore*100}%</span><br /> de votre objectif</p>
                 </div>
                 </div>
             </div>

@@ -3,19 +3,20 @@ import AverageSession from '../model/AverageSession'
 import Performance from '../model/Performance'
 import User from '../model/User'
 
-const apiCall = async (fetchedData) => {
+const apiCall = async (fetchedData, id) => {
     const getRequest = await fetch(fetchedData)
     const jsonResponse = await getRequest.json()
     const URL = fetchedData.split("/").pop()
-    // console.log(this.match.params);
-    // const id = 18
-    // console.log(URL);
+
+    if(jsonResponse === "can not get user") window.location.replace('/');
+    // if(jsonResponse === "can not get user") <Redirect to={NotFound}/>
+    
     switch (URL) {
-        case `${12}`:
+        case `${id}`:
             return new User(   
                 jsonResponse.data.id, 
                 jsonResponse.data.keyData, 
-                jsonResponse.data.todayScore, 
+                jsonResponse.data.todayScore || jsonResponse.data.score, 
                 jsonResponse.data.userInfos
             )
         case "activity":
