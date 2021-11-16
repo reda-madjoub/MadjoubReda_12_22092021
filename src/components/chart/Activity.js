@@ -1,5 +1,6 @@
 import '../sass/Activity.scss'
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import {  BarChart, 
           Bar, 
           XAxis, 
@@ -13,9 +14,14 @@ import {  BarChart,
 export default class Activity extends Component {
 
   render() {
+    // get session property from activity props by using destructuring
     const {sessions} = this.props.activity
     const data = []
 
+    /**
+     * Loop through all session.day to make separate years, mounth and days
+     * With that we can display date format as we want
+     */
     for (const item of sessions) {
       const [yyyy,mm,dd] = item.day.split("-")
       data.push({
@@ -24,7 +30,6 @@ export default class Activity extends Component {
         kilogram: item.kilogram
       })
     }
-    // console.log(data);
 
     return (
       <div className="activity-chart-container">
@@ -43,8 +48,6 @@ export default class Activity extends Component {
         </div>
       <ResponsiveContainer 
         width="100%"
-        // height="100%" 
-        // aspect={2.5}
         >
         <BarChart
         className="barChart"
@@ -98,7 +101,7 @@ export default class Activity extends Component {
             yAxisId="kCal"
             />
           <Bar 
-            yAxisId="kg"
+            yAxisId="kg" // Link data to the proper YAxis
             dataKey="kilogram" 
             fill="#E60000" 
             radius={[10, 10, 0, 0]}
@@ -112,7 +115,13 @@ export default class Activity extends Component {
   }
 }
 
+Activity.propTypes = {
+  sessions: PropTypes.object,
+}
 
+
+// Code from recharts.js
+// source : https://recharts.org/en-US/examples/CustomContentOfTooltip
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload) {
     return (

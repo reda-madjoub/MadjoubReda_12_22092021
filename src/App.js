@@ -4,6 +4,7 @@ import './App.scss'
 import Main from './components/js/Main'
 import NotFound from './components/js/NotFound'
 
+// Routing inside switch router
 
 function App() {
   return (

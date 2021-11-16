@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from "prop-types";
 import  '../sass/UserInfos.scss'
 import  energy from '../../img/energy.svg'
 import  chicken  from '../../img/chicken.svg'
@@ -8,8 +9,8 @@ import  apple  from '../../img/apple.svg'
 class UserInfos extends Component {
 
     render () {
+        // get infos property from props by using destructuring
         const {infos} = this.props
-        // console.log(infos);
         return (
             <div className="container-userInfos">
                 <div className="keydata">
@@ -51,6 +52,10 @@ class UserInfos extends Component {
             </div>
         )
     }
+}
+
+UserInfos.propTypes = {
+    infos: PropTypes.object.isRequired
 }
 
 export default UserInfos

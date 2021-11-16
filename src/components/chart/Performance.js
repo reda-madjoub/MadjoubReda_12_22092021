@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import '../sass/Performance.scss'
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import PropTypes from "prop-types";
 
 class Performance extends Component {
     render () {
+        // get data and kind property from props by using destructuring to avoid to write this.props.performance
       const {data, kind} = this.props.performance
-      // console.log(this.props.performance);
-      let test = [];
+      let userData = [];
+      /**
+       * This loop allow us to format props data to new format
+       */
       for (let i = 0; i < data.length; i++) {
-        test.splice(0,0, {
+        userData.splice(0,0, {
           subject: kind[i+1],
           A: data[i].value,
           fullMark: 300
@@ -20,7 +24,7 @@ class Performance extends Component {
                 <RadarChart 
                     cx="50%" 
                     cy="50%" 
-                    data={test}
+                    data={userData}
                     outerRadius={"70%"}  
                 >
                     <PolarGrid radialLines={false}/>
@@ -39,6 +43,11 @@ class Performance extends Component {
             </ResponsiveContainer>
         )
     }
+}
+
+Performance.propTypes = {
+    data: PropTypes.array,
+    kind: PropTypes.object
 }
 
 export default Performance

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+// Render text for wrong URL
 class NotFound extends Component {
     render () {
         return (

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../sass/AverageSessions.scss'
+import PropTypes from "prop-types";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 
@@ -8,7 +9,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 
 class AverageSessions extends Component {
     render () {
-      // console.log(this.props);
+      // get averageSession property from props by using destructuring to avoid to write this.props
       const {averageSessions} = this.props
       const data = averageSessions
         return (
@@ -63,6 +64,9 @@ class AverageSessions extends Component {
     }
 }
 
+AverageSessions.propTypes = {
+  averageSessions: PropTypes.array.isRequired
+}
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload) {
